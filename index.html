@@ -18,7 +18,7 @@
             background-color: #f9f9f9;
         }
         
-        /* Navbar (Banner Baru) */
+        /* Navbar (Banner) */
         .navbar {
             background-color: #637796;
             color: #ffffff;
@@ -90,24 +90,50 @@
             font-size: 0.7rem;
         }
 
-        /* Hero Section (Spanduk) */
-        .hero {
-            background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-        .hero h2 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
+        /* BANNER UTAMA (FULL WIDTH) - Responsif Zoom */
+        .banner-container {
+            position: relative;
+            width: 100%;
+            /* Membatasi tinggi agar tidak terlalu memakan layar di monitor besar, 
+               tapi tetap menjaga proporsi saat di-zoom */
+            max-height: 85vh; 
+            overflow: hidden;
+            background-color: #e3e3e3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Kontainer Utama */
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            /* Memastikan gambar tetap rapi jika rasio layarnya berubah ekstrem */
+            object-fit: cover; 
+            object-position: center;
+        }
+
+        /* Pita teks transparan di tengah foto (seperti referensi) */
+        .banner-overlay {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.65); /* Hitam transparan */
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+        }
+
+        .banner-overlay h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        /* Kontainer Utama untuk Konten Bawah */
         .container {
             max-width: 1100px;
             margin: auto;
@@ -133,16 +159,6 @@
             background-color: #ffcc00;
             margin: 10px auto 0;
             border-radius: 2px;
-        }
-
-        /* Styling Tambahan untuk Foto Profil Sekolah */
-        .foto-sekolah {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto 30px auto;
-            display: block;
-            border-radius: 10px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
         }
         
         /* Grid Layout */
@@ -206,6 +222,9 @@
                 justify-content: center;
                 gap: 15px;
             }
+            .banner-overlay h2 {
+                font-size: 1.2rem; /* Teks mengecil sedikit di HP */
+            }
         }
     </style>
 </head>
@@ -214,7 +233,7 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-brand">
-            <img src="cropped-Logo-Tut-Wuri-Handayani-PNG-Warna-1-removebg-preview.jpg" alt="Logo Tut Wuri Handayani">
+            <img src="logo.svg" alt="Logo Tut Wuri Handayani">
             <div class="brand-text">
                 <h1>SDN 3 WAY URANG</h1>
                 <span>-</span>
@@ -230,23 +249,24 @@
         </ul>
     </nav>
 
-    <!-- Bagian Hero / Spanduk -->
-    <section id="beranda" class="hero">
-        <h2>Selamat Datang di SDN 3 Way Urang</h2>
-        <p>Kami berkomitmen untuk memberikan pendidikan dasar terbaik dengan lingkungan belajar yang aman, nyaman, dan menyenangkan bagi anak-anak Anda.</p>
-    </section>
+    <!-- BANNER UTAMA (Menggunakan Foto Guru/Staf) -->
+    <div id="beranda" class="banner-container">
+        <!-- Pastikan nama file foto di bawah ini sama persis dengan yang ada di GitHub -->
+        <img src="IMG-20260723-WA0018.jpg" alt="Keluarga Besar SDN 3 Way Urang">
+        
+        <!-- Pita Teks Transparan -->
+        <div class="banner-overlay">
+            <h2>Keluarga Besar SDN 3 Way Urang</h2>
+        </div>
+    </div>
 
-    <!-- Konten Utama -->
+    <!-- Konten Utama (Profil, Visi Misi, dll) -->
     <div class="container">
         
         <!-- Bagian Profil & Visi Misi -->
         <section id="profil">
             <h3>Profil & Visi Misi</h3>
-            
-            <!-- Foto Baru yang Anda Minta Ditambahkan Di Sini -->
-            <img src="IMG-20260723-WA0018.jpg" alt="Guru dan Staf SDN 3 Way Urang pada Peringatan Hari Anak Nasional 2026" class="foto-sekolah">
-            
-            <p style="text-align: center; margin-bottom: 30px; color: #555;">SDN 3 Way Urang adalah institusi pendidikan dasar yang berdedikasi untuk mencetak siswa-siswi berprestasi baik di bidang akademik maupun non-akademik.</p>
+            <p style="text-align: center; margin-bottom: 30px; color: #555;">SDN 3 Way Urang adalah institusi pendidikan dasar yang berdedikasi untuk mencetak siswa-siswi berprestasi baik di bidang akademik maupun non-akademik dengan lingkungan belajar yang aman, nyaman, dan menyenangkan.</p>
             
             <div class="grid">
                 <div class="card">
