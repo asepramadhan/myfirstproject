@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UPTD SDN 3 Way Urang</title>
+    <title>SDN 3 Way Urang</title>
     <style>
         /* CSS Reset & Dasar */
         * {
@@ -18,9 +18,9 @@
             background-color: #f9f9f9;
         }
         
-        /* Navbar (Banner Baru Sesuai Gambar 2) */
+        /* Navbar (Banner Baru) */
         .navbar {
-            background-color: #637796; /* Warna biru keabu-abuan */
+            background-color: #637796;
             color: #ffffff;
             display: flex;
             justify-content: space-between;
@@ -134,6 +134,16 @@
             margin: 10px auto 0;
             border-radius: 2px;
         }
+
+        /* Styling Tambahan untuk Foto Profil Sekolah */
+        .foto-sekolah {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
         
         /* Grid Layout */
         .grid {
@@ -201,14 +211,13 @@
 </head>
 <body>
 
-    <!-- Navbar Sesuai Gambar yang Anda Minta -->
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-brand">
-            <!-- Memanggil file gambar logo Tut Wuri Handayani -->
-            <img src="Logo.svg" alt="Logo Tut Wuri Handayani">
+            <img src="cropped-Logo-Tut-Wuri-Handayani-PNG-Warna-1-removebg-preview.jpg" alt="Logo Tut Wuri Handayani">
             <div class="brand-text">
-                <h1>UPTD SDN 3 WAY URANG</h1>
-                <span>Ragom Mufakat 1 Kalianda Lampung Selatan</span>
+                <h1>SDN 3 WAY URANG</h1>
+                <span>-</span>
             </div>
         </div>
         
@@ -223,7 +232,7 @@
 
     <!-- Bagian Hero / Spanduk -->
     <section id="beranda" class="hero">
-        <h2>Selamat Datang di UPTD SDN 3 Way Urang</h2>
+        <h2>Selamat Datang di SDN 3 Way Urang</h2>
         <p>Kami berkomitmen untuk memberikan pendidikan dasar terbaik dengan lingkungan belajar yang aman, nyaman, dan menyenangkan bagi anak-anak Anda.</p>
     </section>
 
@@ -233,7 +242,11 @@
         <!-- Bagian Profil & Visi Misi -->
         <section id="profil">
             <h3>Profil & Visi Misi</h3>
-            <p style="text-align: center; margin-bottom: 30px; color: #555;">UPTD SDN 3 Way Urang adalah institusi pendidikan dasar yang berdedikasi untuk mencetak siswa-siswi berprestasi baik di bidang akademik maupun non-akademik.</p>
+            
+            <!-- Foto Baru yang Anda Minta Ditambahkan Di Sini -->
+            <img src="IMG-20260723-WA0018.jpg" alt="Guru dan Staf SDN 3 Way Urang pada Peringatan Hari Anak Nasional 2026" class="foto-sekolah">
+            
+            <p style="text-align: center; margin-bottom: 30px; color: #555;">SDN 3 Way Urang adalah institusi pendidikan dasar yang berdedikasi untuk mencetak siswa-siswi berprestasi baik di bidang akademik maupun non-akademik.</p>
             
             <div class="grid">
                 <div class="card">
@@ -268,15 +281,20 @@
                     <h4>Lapangan Olahraga</h4>
                     <p>Area luas untuk kegiatan olahraga dan upacara bendera.</p>
                 </div>
+                <div class="card">
+                    <span class="card-icon">🕌</span>
+                    <h4>Mushola</h4>
+                    <p>Tempat ibadah yang bersih untuk kegiatan keagamaan siswa.</p>
+                </div>
             </div>
         </section>
     </div>
 
     <!-- Bagian Footer / Kontak -->
     <footer id="kontak">
-        <p><strong>📍 Alamat:</strong> Ragom Mufakat 1, Kalianda, Lampung Selatan</p>
-        <p><strong>📧 Email:</strong> - | <strong>📞 Telepon:</strong> - </p>
-        <p class="copyright">&copy; 2026 UPTD SDN 3 Way Urang.</p>
+        <p><strong>📍 Alamat:</strong> Kelurahan Way Urang, Kec. Kalianda, Kab. Lampung Selatan</p>
+        <p><strong>📧 Email:</strong> info@sdn3wayurang.sch.id | <strong>📞 Telepon:</strong> (0727) 123456</p>
+        <p class="copyright">&copy; 2026 SDN 3 Way Urang. Dibangun untuk GitHub Pages.</p>
     </footer>
 
 </body>
