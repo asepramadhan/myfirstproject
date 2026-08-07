@@ -99,7 +99,7 @@
             top: 100%;
             left: 0;
             background-color: #637796; /* Warna disamakan dengan navbar */
-            min-width: 240px; /* Lebar dropdown */
+            min-width: 220px; /* Lebar dropdown sedikit disesuaikan */
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1001;
             list-style: none;
@@ -131,6 +131,13 @@
         .dropdown-content a:hover {
             background-color: rgba(255, 255, 255, 0.1);
             color: #ffcc00;
+        }
+
+        /* --- SOLUSI MENU TERPOTONG --- */
+        /* Mengatur agar dropdown pada urutan terakhir merapat ke kanan (tidak melebar ke luar layar) */
+        .navbar-menu > li:last-child .dropdown-content {
+            left: auto;
+            right: 0;
         }
 
         /* BANNER UTAMA (FULL WIDTH) - Responsif Zoom */
@@ -319,7 +326,7 @@
                 </ul>
             </li>
             
-            <!-- Menu Link (Menggantikan Aplikasi) -->
+            <!-- Menu Link (Sekarang Tidak Akan Terpotong) -->
             <li>
                 <a href="#link">Link <span class="dropdown-icon">&#9662;</span></a>
                 <ul class="dropdown-content">
