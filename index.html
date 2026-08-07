@@ -28,7 +28,7 @@
             padding: 10px 40px;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
@@ -62,14 +62,15 @@
             line-height: 1;
         }
 
-        /* Bagian Menu Navigasi */
+        /* Bagian Menu Navigasi Utama */
         .navbar-menu {
             display: flex;
             list-style: none;
             gap: 25px;
         }
-        .navbar-menu li {
-            position: relative;
+        .navbar-menu > li {
+            position: relative; /* Penting untuk dropdown absolute */
+            padding: 10px 0;
         }
         .navbar-menu a {
             color: white;
@@ -81,21 +82,61 @@
             gap: 6px;
             transition: color 0.3s;
         }
-        .navbar-menu a:hover {
+        /* Hover pada menu utama */
+        .navbar-menu > li > a:hover {
             color: #ffcc00;
         }
         
-        /* Ikon panah bawah (Dropdown) */
+        /* Ikon panah bawah */
         .dropdown-icon {
             font-size: 0.7rem;
+        }
+
+        /* --- STYLING DROPDOWN (SUB-MENU) --- */
+        .dropdown-content {
+            display: none; /* Sembunyikan sub-menu secara default */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #637796; /* Warna disamakan dengan navbar */
+            min-width: 240px; /* Lebar dropdown */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1001;
+            list-style: none;
+            border-radius: 0 0 5px 5px;
+            padding: 5px 0;
+        }
+        
+        /* Tampilkan sub-menu saat menu utama di-hover */
+        .navbar-menu li:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Styling item di dalam sub-menu */
+        .dropdown-content li {
+            width: 100%;
+        }
+        .dropdown-content a {
+            padding: 12px 20px;
+            display: block;
+            font-weight: 400;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Garis pemisah tipis */
+        }
+        /* Hilangkan garis pemisah pada item paling bawah */
+        .dropdown-content li:last-child a {
+            border-bottom: none;
+        }
+        /* Hover pada sub-menu */
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffcc00;
         }
 
         /* BANNER UTAMA (FULL WIDTH) - Responsif Zoom */
         .banner-container {
             position: relative;
             width: 100%;
-            /* Membatasi tinggi agar tidak terlalu memakan layar di monitor besar, 
-               tapi tetap menjaga proporsi saat di-zoom */
             max-height: 85vh; 
             overflow: hidden;
             background-color: #e3e3e3;
@@ -108,19 +149,18 @@
             width: 100%;
             height: auto;
             display: block;
-            /* Memastikan gambar tetap rapi jika rasio layarnya berubah ekstrem */
             object-fit: cover; 
             object-position: center;
         }
 
-        /* Pita teks transparan di tengah foto (seperti referensi) */
+        /* Pita teks transparan di tengah foto */
         .banner-overlay {
             position: absolute;
             top: 50%;
             left: 0;
             width: 100%;
             transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.65); /* Hitam transparan */
+            background-color: rgba(0, 0, 0, 0.65);
             color: white;
             text-align: center;
             padding: 15px 20px;
@@ -220,10 +260,10 @@
             .navbar-menu {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 15px;
+                gap: 10px 20px;
             }
             .banner-overlay h2 {
-                font-size: 1.2rem; /* Teks mengecil sedikit di HP */
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -241,29 +281,68 @@
         </div>
         
         <ul class="navbar-menu">
-            <li><a href="#beranda">Beranda <span class="dropdown-icon">&#9662;</span></a></li>
-            <li><a href="#profil">Profil <span class="dropdown-icon">&#9662;</span></a></li>
-            <li><a href="#data">Data <span class="dropdown-icon">&#9662;</span></a></li>
-            <li><a href="#informasi">Informasi <span class="dropdown-icon">&#9662;</span></a></li>
-            <li><a href="#aplikasi">Aplikasi <span class="dropdown-icon">&#9662;</span></a></li>
+            <!-- Menu Beranda -->
+            <li>
+                <a href="#beranda">Beranda <span class="dropdown-icon">&#9662;</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Gambar</a></li>
+                    <li><a href="#">Video</a></li>
+                </ul>
+            </li>
+            
+            <!-- Menu Profil -->
+            <li>
+                <a href="#profil">Profil <span class="dropdown-icon">&#9662;</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Tentang Sekolah</a></li>
+                    <li><a href="#">Kepala Sekolah</a></li>
+                    <li><a href="#">Prestasi Sekolah</a></li>
+                    <li><a href="#">Dewan Guru dan Karyawan</a></li>
+                </ul>
+            </li>
+            
+            <!-- Menu Data -->
+            <li>
+                <a href="#data">Data <span class="dropdown-icon">&#9662;</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Data Guru</a></li>
+                    <li><a href="#">Data Siswa</a></li>
+                </ul>
+            </li>
+            
+            <!-- Menu Informasi -->
+            <li>
+                <a href="#informasi">Informasi <span class="dropdown-icon">&#9662;</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Pengumuman</a></li>
+                    <li><a href="#">Unduhan</a></li>
+                </ul>
+            </li>
+            
+            <!-- Menu Link (Menggantikan Aplikasi) -->
+            <li>
+                <a href="#link">Link <span class="dropdown-icon">&#9662;</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Kemendikbud</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Google Maps</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 
-    <!-- BANNER UTAMA (Menggunakan Foto Guru/Staf) -->
+    <!-- BANNER UTAMA -->
     <div id="beranda" class="banner-container">
-        <!-- Pastikan nama file foto di bawah ini sama persis dengan yang ada di GitHub -->
         <img src="IMG-20260723-WA0018.jpg" alt="Keluarga Besar UPTD SDN 3 Way Urang">
         
-        <!-- Pita Teks Transparan -->
         <div class="banner-overlay">
             <h2>Keluarga Besar UPTD SDN 3 Way Urang</h2>
         </div>
     </div>
 
-    <!-- Konten Utama (Profil, Visi Misi, dll) -->
+    <!-- Konten Utama -->
     <div class="container">
         
-        <!-- Bagian Profil & Visi Misi -->
         <section id="profil">
             <h3>Profil & Visi Misi</h3>
             <p style="text-align: center; margin-bottom: 30px; color: #555;">UPTD SDN 3 Way Urang adalah institusi pendidikan dasar yang berdedikasi untuk mencetak siswa-siswi berprestasi baik di bidang akademik maupun non-akademik dengan lingkungan belajar yang aman, nyaman, dan menyenangkan.</p>
@@ -282,7 +361,6 @@
             </div>
         </section>
 
-        <!-- Bagian Fasilitas -->
         <section id="fasilitas">
             <h3>Fasilitas Kami</h3>
             <div class="grid">
@@ -309,7 +387,7 @@
     <footer id="kontak">
         <p><strong>📍 Alamat:</strong> Ragom Mufakat 1, Kalianda, Lampung Selatan</p>
         <p><strong>📧 Email:</strong> - | <strong>📞 Telepon:</strong> - </p>
-        <p class="copyright">&copy; 2026 UPTD SDN 3 Way Urang.s.</p>
+        <p class="copyright">&copy; 2026 UPTD SDN 3 Way Urang.</p>
     </footer>
 
 </body>
