@@ -32,11 +32,14 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        /* Bagian Logo & Nama Sekolah */
+        /* Bagian Logo & Nama Sekolah (Sudah dimodifikasi agar bisa diklik) */
         .navbar-brand {
             display: flex;
             align-items: center;
             gap: 15px;
+            text-decoration: none; /* Menghilangkan garis bawah link */
+            color: #ffffff;        /* Memastikan warna teks tetap putih */
+            cursor: pointer;
         }
         .navbar-brand img {
             width: 50px;
@@ -69,7 +72,7 @@
             gap: 25px;
         }
         .navbar-menu > li {
-            position: relative; /* Penting untuk dropdown absolute */
+            position: relative;
             padding: 10px 0;
         }
         .navbar-menu a {
@@ -82,7 +85,6 @@
             gap: 6px;
             transition: color 0.3s;
         }
-        /* Hover pada menu utama */
         .navbar-menu > li > a:hover {
             color: #ffcc00;
         }
@@ -94,12 +96,12 @@
 
         /* --- STYLING DROPDOWN (SUB-MENU) --- */
         .dropdown-content {
-            display: none; /* Sembunyikan sub-menu secara default */
+            display: none;
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: #637796; /* Warna disamakan dengan navbar */
-            min-width: 220px; /* Lebar dropdown sedikit disesuaikan */
+            background-color: #637796;
+            min-width: 220px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1001;
             list-style: none;
@@ -107,12 +109,10 @@
             padding: 5px 0;
         }
         
-        /* Tampilkan sub-menu saat menu utama di-hover */
         .navbar-menu li:hover .dropdown-content {
             display: block;
         }
         
-        /* Styling item di dalam sub-menu */
         .dropdown-content li {
             width: 100%;
         }
@@ -121,26 +121,23 @@
             display: block;
             font-weight: 400;
             font-size: 0.9rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Garis pemisah tipis */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        /* Hilangkan garis pemisah pada item paling bawah */
         .dropdown-content li:last-child a {
             border-bottom: none;
         }
-        /* Hover pada sub-menu */
         .dropdown-content a:hover {
             background-color: rgba(255, 255, 255, 0.1);
             color: #ffcc00;
         }
 
         /* --- SOLUSI MENU TERPOTONG --- */
-        /* Mengatur agar dropdown pada urutan terakhir merapat ke kanan (tidak melebar ke luar layar) */
         .navbar-menu > li:last-child .dropdown-content {
             left: auto;
             right: 0;
         }
 
-        /* BANNER UTAMA (FULL WIDTH) - Responsif Zoom */
+        /* BANNER UTAMA (FULL WIDTH) */
         .banner-container {
             position: relative;
             width: 100%;
@@ -279,20 +276,16 @@
 
     <!-- Navbar -->
     <nav class="navbar">
-       <!-- Navbar -->
-    <nav class="navbar">
-        <!-- Ubah tag <div> ini menjadi <a> -->
+        <!-- Logo dan Teks sebagai Link ke Beranda -->
         <a href="index.html" class="navbar-brand">
             <img src="Logo.svg" alt="Logo Tut Wuri Handayani">
             <div class="brand-text">
                 <h1>UPTD SDN 3 Way Urang</h1>
                 <span>Ragom Mufakat 1, Kalianda, Lampung Selatan</span>
             </div>
-        <!-- Jangan lupa ubah juga penutupnya dari </div> menjadi </a> -->
         </a>
         
         <ul class="navbar-menu">
-            <!-- Menu Beranda -->
             <li>
                 <a href="#beranda">Beranda <span class="dropdown-icon">&#9662;</span></a>
                 <ul class="dropdown-content">
@@ -301,18 +294,17 @@
                 </ul>
             </li>
             
-            <!-- Menu Profil -->
             <li>
                 <a href="#profil">Profil <span class="dropdown-icon">&#9662;</span></a>
                 <ul class="dropdown-content">
                     <li><a href="#">Tentang Sekolah</a></li>
+                    <!-- Link Kepala Sekolah -->
                     <li><a href="kepala-sekolah.html">Kepala Sekolah</a></li>
                     <li><a href="#">Prestasi Sekolah</a></li>
                     <li><a href="#">Dewan Guru dan Karyawan</a></li>
                 </ul>
             </li>
             
-            <!-- Menu Data -->
             <li>
                 <a href="#data">Data <span class="dropdown-icon">&#9662;</span></a>
                 <ul class="dropdown-content">
@@ -321,7 +313,6 @@
                 </ul>
             </li>
             
-            <!-- Menu Informasi -->
             <li>
                 <a href="#informasi">Informasi <span class="dropdown-icon">&#9662;</span></a>
                 <ul class="dropdown-content">
@@ -330,7 +321,6 @@
                 </ul>
             </li>
             
-            <!-- Menu Link (Sekarang Tidak Akan Terpotong) -->
             <li>
                 <a href="#link">Link <span class="dropdown-icon">&#9662;</span></a>
                 <ul class="dropdown-content">
