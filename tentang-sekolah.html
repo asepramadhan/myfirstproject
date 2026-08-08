@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Sekolah - UPTD SDN 3 Way Urang</title>
+    <style>
+        /* CSS Reset & Dasar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        /* Navbar (Banner) - Sama dengan index */
+        .navbar {
+            background-color: #637796;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            background-color: transparent;
+        }
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .brand-text h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 1.2;
+        }
+        .brand-text span {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            line-height: 1;
+        }
+
+        /* Bagian Menu Navigasi Utama */
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        .navbar-menu > li {
+            position: relative;
+            padding: 10px 0;
+        }
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s;
+        }
+        .navbar-menu > li > a:hover {
+            color: #ffcc00;
+        }
+        .dropdown-icon {
+            font-size: 0.7rem;
+        }
+
+        /* Styling Dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #637796;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1001;
+            list-style: none;
+            border-radius: 0 0 5px 5px;
+            padding: 5px 0;
+        }
+        .navbar-menu li:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content li {
+            width: 100%;
+        }
+        .dropdown-content a {
+            padding: 12px 20px;
+            display: block;
+            font-weight: 400;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .dropdown-content li:last-child a {
+            border-bottom: none;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffcc00;
+        }
+        .navbar-menu > li:last-child .dropdown-content {
+            left: auto;
+            right: 0;
+        }
+
+        /* --- STYLING HALAMAN TENTANG SEKOLAH --- */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .page-title {
+            color: #0056b3;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #ffcc00;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .content-box {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #0056b3;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #ffcc00;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        .content-box p {
+            text-align: justify;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: #444;
+            font-size: 1.05rem;
+        }
+
+        .content-box li {
+            margin-bottom: 8px;
+        }
+
+        /* Tabel Identitas */
+        .identity-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .identity-table th, .identity-table td {
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+            font-size: 1.05rem;
+            color: #444;
+        }
+        .identity-table th {
+            background-color: #f4f7f6;
+            width: 35%;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+        footer p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #aaaaaa;
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+            .navbar-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px 20px;
+            }
+            .content-box {
+                padding: 20px;
+            }
+            .identity-table th {
+                width: 40%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-brand">
+            <img src="Logo.svg" alt="Logo Tut Wuri Handayani">
+            <div class="brand-text">
+                <h1>UPTD SDN 3 Way Urang</h1>
+                <span>Ragom Mufakat 1, Kalianda, Lampung Selatan</span>
+            </div>
+        </a>
+        
+        <!-- Perhatikan href mengarah kembali ke index.html agar menu lain tetap berfungsi -->
+        <ul class="navbar-menu">
+            <li>
+                <a href="index.html#beranda">Beranda <span class="dropdown-icon">&#9662;</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="index.html#">Gambar</a></li>
+                    <li><a href="index.html#">Video</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="index.html#profil">Profil <span class="dropdown-icon">&#9662;</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="tentang-sekolah.html">Tentang Sekolah</a></li>
+                    <li><a href="kepala-sekolah.html">Kepala Sekolah</a></li>
+                    <li><a href="index.html#">Prestasi Sekolah</a></li>
+                    <li><a href="index.html#">Dewan Guru dan Karyawan</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="index.html#data">Data <span class="dropdown-icon">&#9662;</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="index.html#">Data Guru</a></li>
+                    <li><a href="index.html#">Data Siswa</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="index.html#informasi">Informasi <span class="dropdown-icon">&#9662;</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="index.html#">Pengumuman</a></li>
+                    <li><a href="index.html#">Unduhan</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="#link">Link <span class="dropdown-icon">&#9662;</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="https://referensi.data.kemendikdasmen.go.id/pendidikan/npsn/10800148" target="_blank">Kemendikdasmen</a></li>
+                    <li><a href="https://www.instagram.com/sdn3_wayurang/" target="_blank">Instagram</a></li>
+                    <li><a href="https://maps.app.goo.gl/58QXYSDo9iLfGgwj9" target="_blank">Google Maps</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Konten Utama -->
+    <div class="container">
+        <h2 class="page-title">Tentang Sekolah</h2>
+        
+        <div class="content-box">
+            <h3 class="section-title">Gambaran Umum</h3>
+            <p><strong>UPTD SDN 3 Way Urang</strong> merupakan salah satu instansi pendidikan dasar negeri yang berlokasi di pusat pemerintahan Kabupaten Lampung Selatan, tepatnya di Kecamatan Kalianda. Kami berkomitmen kuat untuk menghadirkan layanan pendidikan yang berkualitas, inklusif, dan relevan dengan perkembangan zaman.</p>
+            <p>Berdiri di lingkungan yang asri dan kondusif, sekolah kami terus berupaya menciptakan suasana belajar yang PAIKEM (Pembelajaran Aktif, Inovatif, Kreatif, Efektif, dan Menyenangkan). Dukungan penuh dari tenaga pendidik profesional dan masyarakat sekitar menjadi kekuatan utama kami dalam membina generasi muda.</p>
+            
+            <h3 class="section-title" style="margin-top: 30px;">Identitas Sekolah</h3>
+            <table class="identity-table">
+                <tr>
+                    <th>Nama Sekolah</th>
+                    <td>UPTD SD Negeri 3 Way Urang</td>
+                </tr>
+                <tr>
+                    <th>NPSN</th>
+                    <td>10800148</td>
+                </tr>
+                <tr>
+                    <th>Bentuk Pendidikan</th>
+                    <td>Sekolah Dasar (SD)</td>
+                </tr>
+                <tr>
+                    <th>Status Sekolah</th>
+                    <td>Negeri</td>
+                </tr>
+                <tr>
+                    <th>Alamat Lengkap</th>
+                    <td>Ragom Mufakat 1, Kelurahan Way Urang, Kec. Kalianda, Kab. Lampung Selatan, Provinsi Lampung</td>
+                </tr>
+            </table>
+
+            <h3 class="section-title" style="margin-top: 40px;">Tujuan Sekolah</h3>
+            <ul>
+                <li>Membentuk peserta didik yang memiliki keimanan dan ketakwaan kepada Tuhan Yang Maha Esa.</li>
+                <li>Meningkatkan prestasi akademik dan non-akademik siswa melalui bimbingan yang berkelanjutan.</li>
+                <li>Menanamkan nilai-nilai karakter, budi pekerti luhur, serta kepedulian terhadap lingkungan sosial dan alam.</li>
+                <li>Mempersiapkan lulusan yang tangguh, mandiri, dan siap melanjutkan pendidikan ke jenjang yang lebih tinggi.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bagian Footer / Kontak -->
+    <footer id="kontak">
+        <p><strong>📍 Alamat:</strong> Ragom Mufakat 1, Kalianda, Lampung Selatan</p>
+        <p><strong>📧 Email:</strong> - | <strong>📞 Telepon:</strong> - </p>
+        <p class="copyright">&copy; 2026 UPTD SDN 3 Way Urang.</p>
+    </footer>
+
+</body>
+</html>
